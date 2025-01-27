@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title><%= typeof title !== 'undefined' ? title : "Blogify" %></title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <main>
+        <%- body %>
+    </main>
+    <%- include('./partials/script.ejs') %>
+</body>
+</html>

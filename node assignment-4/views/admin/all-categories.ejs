@@ -1,0 +1,28 @@
+<h2>All Categories</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Category Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% categories.forEach((category, index)=> { %>
+      <tr>
+        <td>
+          <%= index + 1 %>
+        </td>
+        <td>
+          <%= category.name %>
+        </td>
+        <td>
+          <a href="/admin/edit-category/<%= category._id %>" class="btn btn-warning">Edit</a>
+          <a href="/admin/delete-category/<%= category._id %>" class="btn btn-danger"
+            onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

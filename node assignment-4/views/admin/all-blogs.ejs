@@ -1,0 +1,30 @@
+<h2>All Blogs</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% blogs.forEach(blog=> { %>
+      <tr>
+        <td>
+          <%= blog.title %>
+        </td>
+        <td>
+          <%= blog.category.name %>
+        </td>
+        <td>
+          <%= blog.description %>
+        </td>
+        <td>
+          <a href="/edit-blog/<%= blog._id %>">Edit</a> |
+          <a href="/delete-blog/<%= blog._id %>">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+  </tbody>
+</table>

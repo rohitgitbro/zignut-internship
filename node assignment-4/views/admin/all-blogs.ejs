@@ -1,0 +1,44 @@
+<%- include('./dashboard.ejs') %>
+
+
+  <div class="content">
+
+    <h2>All Blogs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% blogs.forEach(blog=> { %>
+          <tr>
+            <td>
+              <%= blog.title %>
+            </td>
+            <td>
+              <%= blog.category ? blog.category.name : 'No category' %>
+            </td>
+            <td>
+              <%= blog.description %>
+            </td>
+            <td>
+              <div class="d-flex gap-2">
+                <a href="/admin/edit-blog/<%= blog._id %>" class="btn btn-warning btn-sm">Edit</a>
+
+                <form action="/admin/delete-blog/<%= blog._id %>" method="POST" style="display:inline;">
+                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">
+                    Delete
+                  </button>
+                </form>
+              </div>
+
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  </div>
